@@ -66,16 +66,81 @@
         <h1 class="hero-title">Эффективные решения для вашего бизнеса</h1>
         <button class="hero-button" type="button" data-modal-open>Заказать услугу</button>
         <div class="backdrop is-hidden" data-modal>
-      <div class="modal-wrapper">
-        <button class="modal-btn" type="button" data-modal-close>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="18" height="18" >
-            <path
-              d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"
-            />
-          </svg>
-        </button>
-      </div>
-    </div>
+          <div class="modal-wrapper">
+            <button class="modal-btn" type="button" data-modal-close>
+              <svg class="icon-close" viewbox="0 0 320 512" width="18" height="18">
+                <path
+                  d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"
+                />
+              </svg>
+            </button>
+
+            <div class="contact-form">
+              <b class="form-title">Оставьте свои данные, мы вам перезвоним</b>
+
+              <form class="form js-speaker-form" name="form">
+                <label for="name" class="form-group">
+                  <span class="form-label">Имя</span>
+
+                  <span class="form-block">
+                    <input class="form-input" type="text" name="name" id="name" />
+                    <svg class="form-icons" width="18" height="18">
+                      <use href="./images/sprite.svg#icon-person"></use>
+                    </svg>
+                  </span>
+                </label>
+
+                <label class="form-group">
+                  <span class="form-label">Телефон</span>
+
+                  <span class="form-block">
+                    <input class="form-input" type="tel" name="tel" id="tel" />
+                    <svg class="form-icons" width="18" height="18">
+                      <use href="./images/sprite.svg#icon-phone-form"></use>
+                    </svg>
+                  </span>
+                </label>
+
+                <label class="form-group">
+                  <span class="form-label">Почта</span>
+                  <span class="form-block">
+                    <input class="form-input" type="email" name="email" id="email" />
+                    <svg class="form-icons" width="18" height="18">
+                      <use href="./images/sprite.svg#icon-email-form"></use>
+                    </svg>
+                  </span>
+                </label>
+
+                <label class="form-group">
+                  <span class="form-label">Комментарий</span>
+                  <textarea
+                    name="comment"
+                    id="comment"
+                    rows="9"
+                    placeholder="Введите текст"
+                  ></textarea>
+                </label>
+
+                <label class="policy">
+                  <input class="checkbox visually-hidden" type="checkbox" />
+                  <span class="mark">
+                    <svg class="deal-icons" width="18" height="18">
+                      <use href="./images/sprite.svg#icon-check"></use>
+                    </svg>
+                  </span>
+                  <span class="term"
+                    >Соглашаюсь с рассылкой и принимаю
+                    <span class="term-var">Условия договора</span></span
+                  >
+                </label>
+
+                <div class="send">
+                  <button class="button-contract" type="submit">Отправить</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </section>
 
       <!--Особенности-->
@@ -573,10 +638,35 @@
             </li>
           </ul>
         </div>
+        <div class="sub">
+          <b class="sub-title">Подпишитесь на рассылку</b>
+          <form class="sub-form" name="sub-form">
+            <label for="sub-form">
+              <input class="email" type="email" name="mail-name" placeholder="E-mail" />
+            </label>
+            <button class="sub-button" type="submit">
+              <span class="error">Подписаться</span>
+              <svg class="icon-telegram" width="24" height="24">
+                <use href="./images/sprite.svg#icon-telegram"></use>
+              </svg>
+            </button>
+          </form>
+        </div>
       </div>
     </footer>
 
-
     <script src="./js/modal.js"></script>
+
+    <script>
+      (() => {
+        document.querySelector('.js-speaker-form').addEventListener('submit', e => {
+          e.preventDefault();
+
+          new FormData(e.currentTarget).forEach((value, name) => console.log(`${name}: ${value}`));
+
+          e.currentTarget.reset();
+        });
+      })();
+    </script>
   </body>
 </html>
