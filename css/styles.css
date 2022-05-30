@@ -674,13 +674,11 @@ input {
 
 .sub-form {
     display: flex;
-    justify-content: center;
 }
 .sub-title {
     display: block;
     margin: 0;
-    padding-top: 0;
-    padding-bottom: 20px;
+    margin-bottom: 20px;
 
     font-weight: 700;
     font-size: 14px;
@@ -691,7 +689,7 @@ input {
     color: #FFFFFF;
 }
 
-.email {
+.mail-name {
     
     padding-top: 15px;
     padding-bottom: 15px;
@@ -711,27 +709,31 @@ input {
     border-radius: 4px;
     background-color:#2F303A;
     color: rgba(255, 255, 255, 0.6);
+    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
     
 }
 .sub-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 10px 28px;
        
-    width: 200px;
-    height: 50px;
+    
     background: #2196F3;
     border-color: #2196F3;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-    border-radius: 4px;
+    border-radius: 4px;   
+    
+    
+}
 
+.btn-telegram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #FFFFFF;
     font-weight: 700;
     font-size: 16px;
-    line-height: 1.88;
+    line-height: 1.87;
     letter-spacing: 0.06em;
-    
-    color: #FFFFFF;
-    
 }
 
 .icon-telegram {
@@ -1157,12 +1159,21 @@ textarea::placeholder {
 
 }
 
-.checkbox:checked + .mark{
+
+
+.checkbox:checked + .mark {
     background-color: var(--accent-color);
     outline: 2px solid var(--accent-color);
     fill: #FFFFFF;
     
 }
+
+.checkbox:hover+.mark,
+.checkbox:focus+.mark {
+    outline: 2px solid var(--accent-color);
+}
+
+
 .deal-icons {
     opacity: 0;
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
